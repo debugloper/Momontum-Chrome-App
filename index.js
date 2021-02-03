@@ -1,12 +1,10 @@
-let a = 255;
-let b = 255 - 5;
-a = 4; // you update the variable a so don't use 'let' to initialise
+// define function inside an object
+const title = document.getElementById("title");
 
-const var1 = 221; // you can't update const variable
-console.log(b);
+// DOM document object model
+// Everything you select from the page using JS will be called into an object.
+title.innerHTML = "This is a test again"
+title.style.color = "black"
 
-const testObject = {
-    name: "test"
-}
-
-console.log(testObject.name)
+// Change HTML using JavaScript.
+document.title = "Momontum"
