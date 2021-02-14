@@ -1,25 +1,24 @@
-// define function inside an object
-// const title = document.getElementById("title");
+// clock.js
 
-// DOM document object model
-// Everything you select from the page using JS will be called into an object.
-// title.innerHTML = "This is a test again"
-// title.style.color = "black"
+const clockContainer = document.querySelector(".js-clock");
+const clockTitle = clockContainer.querySelector("h1");
 
-// Change HTML using JavaScript.
-// document.title = "Momontum"
 
-const title = document.querySelector("#title");
-
-const CLICKED_CLASS = "clicked";
-
-function handleClick() {
-    // if CLICKED_CLASS nto in className, add if exists, remove using toggle.
-    title.classList.toggle(CLICKED_CLASS);
+function getTime() {
+    const date = new Date();
+    const minutes = date.getMinutes();
+    const hours = date.getHours();
+    const seconds = date.getSeconds();
+    // innerText is text inside object
+    // we want 0 infront of time - use ternary operation
+    clockTitle.innerText = `${hours < 10 ? `0${hours}` : hours}:${
+        minutes < 10 ? `0${minutes}` : minutes}:${
+            seconds < 10 ? `0${seconds}` : seconds}`;
 }
 
 function init() {
-    title.addEventListener("click", handleClick);
+    getTime();
+    setInterval(getTime, 1000);
 }
 
 init();
